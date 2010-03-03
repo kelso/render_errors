@@ -1,0 +1,31 @@
+RenderErrors
+============
+
+If your site is non-english and you are using ActiveRecord validations, use
+this plugin instead of native "error_messages_for" helper. With this helper
+is rendering errors simpler. You get simple <ul> with messages in <li> elements.
+It ignores column name in errors array and uses only the :message argument.
+
+
+Example
+=======
+
+In your view:
+
+<%= render_errors_if_any @article %>
+
+This generates:
+
+<ul class="errors">
+  <li>Vyplnte nadpis článku</li>
+  <li>Vyplnte telo článku</li>
+</ul>
+
+---
+In your model:
+
+validates_presence_of :title, :message => "Vyplnte nadpis článku"
+validates_presence_of :body, :message => "Vyplnte telo článku"
+
+Copyright (c) 2010 Stefan Huska, released under the MIT license
+

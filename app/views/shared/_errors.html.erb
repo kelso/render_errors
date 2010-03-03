@@ -1,0 +1,8 @@
+<% if object.errors.any? %>
+  <% content_tag :ul, :class => "errors" do %>
+    <% object.errors.each do |attr_name, message| %>
+      <%= content_tag :li, message %>
+    <% end %>
+  <% end %>
+<% end %>
+
